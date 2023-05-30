@@ -1,8 +1,9 @@
 {
   "name": "atu-web-scraping-deno-api",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
-  "main": "index.js",
+  "main": "src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "deno run --allow-env --allow-sys src/main.ts"
