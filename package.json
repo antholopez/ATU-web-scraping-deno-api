@@ -6,7 +6,7 @@
   "main": "src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "deno run --allow-env --allow-sys --allow-net src/main.ts"
+    "dev": "deno run --allow-env --allow-sys --allow-net --node-modules-dir src/main.ts"
   },
   "keywords": [],
   "author": "",
