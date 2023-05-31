@@ -6,7 +6,7 @@ import { cleanText, scrape } from "./scraping/utils.ts";
 const app = new Hono();
 
 app.get("/", (c) => {
-  return c.text("Hello Deno!");
+  return c.text("Scraping ATU API");
 });
 
 app.get("/services", async (c) => {
