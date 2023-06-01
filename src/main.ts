@@ -6,8 +6,7 @@ import {
 } from "https://deno.land/x/hono@v3.2.3/middleware.ts";
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import {} from "./cron/job.ts";
-
-const kv = await Deno.openKv();
+import { readDBFile } from "./db/index.ts";
 
 const app = new Hono();
 
@@ -19,7 +18,7 @@ app.get("/api", (c) => {
 });
 
 app.get("/api/services", async (c) => {
-  const { value: services } = await kv.get(["services", "services"]);
+  const services = await readDBFile("services");
   return c.json(services, 200);
 });
 

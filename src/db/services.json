@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "REGULAR A"
+  },
+  {
+    "id": 2,
+    "name": "REGULAR B"
+  },
+  {
+    "id": 3,
+    "name": "REGULAR C"
+  },
+  {
+    "id": 4,
+    "name": "REGULAR D"
+  },
+  {
+    "id": 5,
+    "name": "REGULAR E"
+  },
+  {
+    "id": 6,
+    "name": "EXPRESO 1"
+  },
+  {
+    "id": 7,
+    "name": "EXPRESO 2"
+  },
+  {
+    "id": 8,
+    "name": "EXPRESO 3"
+  },
+  {
+    "id": 9,
+    "name": "EXPRESO 4"
+  },
+  {
+    "id": 10,
+    "name": "EXPRESO 5"
+  },
+  {
+    "id": 11,
+    "name": "EXPRESO 6"
+  },
+  {
+    "id": 12,
+    "name": "EXPRESO 7"
+  },
+  {
+    "id": 13,
+    "name": "EXPRESO 8"
+  },
+  {
+    "id": 14,
+    "name": "EXPRESO 9"
+  },
+  {
+    "id": 15,
+    "name": "EXPRESO 10"
+  },
+  {
+    "id": 16,
+    "name": "SUPER EXPRESO"
+  },
+  {
+    "id": 17,
+    "name": "SUPER EXPRESO NORTE"
+  },
+  {
+    "id": 18,
+    "name": "LECHUCERO"
+  }
+]

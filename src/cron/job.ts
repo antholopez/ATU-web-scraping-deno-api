@@ -1,22 +1,19 @@
-import {
-  daily,
-  everyMinute,
-} from "https://deno.land/x/deno_cron@v1.0.0/cron.ts";
+import { daily } from "https://deno.land/x/deno_cron@v1.0.0/cron.ts";
 import * as log from "https://deno.land/std@0.190.0/log/mod.ts";
 import { getServices } from "../scraping/index.ts";
-const kv = await Deno.openKv();
+import { writeDBFile } from "../db/index.ts";
 
-const setScrapingData = async () => {
+const setWriteDBData = async () => {
   const [services] = await Promise.all([getServices()]);
-  await kv.atomic().set(["services", "services"], services).commit();
-  log.info("Init scraping data...");
+  await writeDBFile("services", services);
+  log.info("Init write db data...");
 };
-await setScrapingData();
+await setWriteDBData();
 
 log.info("Before job instantiation");
-everyMinute(async () => {
+daily(async () => {
   const date = new Date();
-  await setScrapingData();
-  log.info(`Set scraping data... ${date}`);
+  await setWriteDBData();
+  log.info(`Set write db data... ${date}`);
 });
 log.info("After job instantiation");
