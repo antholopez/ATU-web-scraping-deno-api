@@ -15,7 +15,7 @@ app.use("*", logger(), poweredBy());
 app.use("/api/*", cors());
 
 app.get("/api", (c) => {
-  return c.text("Scraping ATU API");
+  return c.text("Scraping ATU API - PERU");
 });
 
 app.get("/api/services", async (c) => {
