@@ -6,7 +6,7 @@ import {
 } from "https://deno.land/x/hono@v3.2.3/middleware.ts";
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import {} from "./cron/job.ts";
-import { readDBFile } from "./db/index.ts";
+import { getServiceATU } from "./utils/db.ts";
 
 const app = new Hono();
 
@@ -18,7 +18,7 @@ app.get("/api", (c) => {
 });
 
 app.get("/api/services", async (c) => {
-  const services = await readDBFile("services");
+  const services = await getServiceATU("services");
   return c.json(services, 200);
 });
 
