@@ -13,6 +13,21 @@ const app = new Hono();
 app.use("*", logger(), poweredBy());
 app.use("/api/*", cors());
 
+app.get("/", (c) => {
+  return c.json([
+    {
+      endpoint: "/api",
+      description: "API Welcome message",
+      parameters: [],
+    },
+    {
+      endpoint: "/api/services",
+      description: "Return all ATU metropolitan services",
+      parameters: [],
+    },
+  ]);
+});
+
 app.get("/api", (c) => {
   return c.text("Scraping ATU API - PERU");
 });
