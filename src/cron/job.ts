@@ -1,7 +1,4 @@
-import {
-  daily,
-  everyMinute,
-} from "https://deno.land/x/deno_cron@v1.0.0/cron.ts";
+import { daily } from "https://deno.land/x/deno_cron@v1.0.0/cron.ts";
 import * as log from "https://deno.land/std@0.190.0/log/mod.ts";
 import { getServices } from "../scraping/index.ts";
 import { setDataATU } from "../utils/db.ts";
@@ -15,7 +12,7 @@ const setWriteDBData = async () => {
 await setWriteDBData();
 
 log.info("Before job instantiation");
-everyMinute(async () => {
+daily(async () => {
   const date = new Date();
   await setWriteDBData();
   log.info(`Set write db data... ${date}`);
