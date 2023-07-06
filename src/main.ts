@@ -33,7 +33,8 @@ app.get("/api", (c) => {
 });
 
 app.get("/api/services", async (c) => {
-  const services = await getServiceATU("services");
+  const { page, limit } = c.req.query();
+  const services = await getServiceATU("services", page, limit);
   return c.json(services, 200);
 });
 
