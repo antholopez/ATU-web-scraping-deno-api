@@ -11,10 +11,10 @@ const setWriteDBData = async () => {
 };
 await setWriteDBData();
 
-log.info("Before job instantiation");
 daily(async () => {
+  log.info("Before job instantiation");
   const date = new Date();
   await setWriteDBData();
   log.info(`Set write db data... ${date}`);
+  log.info("After job instantiation");
 });
-log.info("After job instantiation");
