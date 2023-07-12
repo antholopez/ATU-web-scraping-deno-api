@@ -1,4 +1,4 @@
-import { Service } from "../interfaces/service.ts";
+import { Service } from "../metropolitano/services/domain/models/service.ts";
 
 export const chunkArray = (array: Service[], chunkSize: number) => {
   const chunks: Service[][] = [];
@@ -11,9 +11,3 @@ export const chunkArray = (array: Service[], chunkSize: number) => {
 
   return chunks;
 };
-
-export const cleanText = (text: string) =>
-  text
-    .replace(/\t|\n|\s:/g, "")
-    .replace(/.*:/g, " ")
-    .trim();
