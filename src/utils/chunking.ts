@@ -1,4 +1,4 @@
-import { Service } from "../interfaces/service.ts";
+import { Service } from "../metropolitano/services/domain/models/service.ts";
 
 export const chunkArray = (array: Service[], chunkSize: number) => {
   const chunks: Service[][] = [];
