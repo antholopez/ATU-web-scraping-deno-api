@@ -1,5 +1,6 @@
 import { Service } from "../models/service.ts";
 
-export interface ServiceRepository {
-  getAll(key: string): Promise<Service[]>;
+export default interface ServiceRepository {
+  getAll(key: string): Promise<Service[] | null>;
+  saveAll(data: Service[]): Promise<void>;
 }
