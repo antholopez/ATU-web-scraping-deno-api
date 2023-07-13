@@ -1,4 +1,4 @@
-import { Service } from "../models/service.ts";
+import { Service } from "../../domain/models/service.ts";
 
 export default interface ServiceRepository {
   getAll(key: string): Promise<Service[] | null>;

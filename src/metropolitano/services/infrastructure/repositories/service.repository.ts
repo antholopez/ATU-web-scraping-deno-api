@@ -1,5 +1,6 @@
+import ServiceRepository from "../../adapter/repositories/service.repository.ts";
 import { Service } from "../../domain/models/service.ts";
-import ServiceRepository from "./../../domain/repositories/service.repository.ts";
+
 const kv = await Deno.openKv();
 
 export class ServiceRepositoryImpl implements ServiceRepository {
