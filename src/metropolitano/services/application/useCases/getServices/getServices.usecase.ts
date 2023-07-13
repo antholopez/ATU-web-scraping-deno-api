@@ -1,7 +1,7 @@
 import { GetServicesInput } from "./getServices.input.ts";
-import ServiceRepository from "./../../../domain/repositories/service.repository.ts";
 import { chunkArray } from "../../../../../utils/chunking.ts";
 import { Service } from "../../../domain/models/service.ts";
+import ServiceRepository from "../../../adapter/repositories/service.repository.ts";
 export class GetServicesUseCase {
   constructor(readonly serviceRepository: ServiceRepository) {}
 
