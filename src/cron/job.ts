@@ -1,10 +1,17 @@
-import { ServiceRepositoryImpl } from "./../metropolitano/services/infrastructure/repositories/service.repository.ts";
 import { AtuScrapingService } from "./../metropolitano/services/infrastructure/externalServices/atuScrapingService.ts";
-import { daily } from "https://deno.land/x/deno_cron@v1.0.0/cron.ts";
+import {
+  daily,
+  everyMinute,
+} from "https://deno.land/x/deno_cron@v1.0.0/cron.ts";
 import * as log from "https://deno.land/std@0.190.0/log/mod.ts";
+import { DenoKVServiceRepository } from "../metropolitano/services/infrastructure/repositories/DenoKVServiceRepository.ts";
+import { DenoKVConnection } from "../shared/infrastructure/DenoKVConnection.ts";
 
 const metropolinanoServices = new AtuScrapingService();
-const metropolinanoServicesRepository = new ServiceRepositoryImpl();
+const denoKVConnection = new DenoKVConnection();
+const metropolinanoServicesRepository = new DenoKVServiceRepository(
+  denoKVConnection
+);
 
 const setWriteDBData = async () => {
   const date = new Date();
@@ -17,7 +24,7 @@ const setWriteDBData = async () => {
 };
 await setWriteDBData();
 
-daily(async () => {
+everyMinute(async () => {
   log.info("Before job instantiation");
   await setWriteDBData();
   log.info("After job instantiation");

@@ -1,9 +1,9 @@
 import { Context } from "https://deno.land/x/hono@v3.2.3/mod.ts";
 import { GetServicesUseCase } from "./../../metropolitano/services/application/useCases/getServices/getServices.usecase.ts";
-import { ServiceRepositoryImpl } from "../../metropolitano/services/infrastructure/repositories/service.repository.ts";
+import { DenoKVServiceRepository } from "../../metropolitano/services/infrastructure/repositories/DenoKVServiceRepository.ts";
 
 class MetropolitanoServicesController {
-  constructor(private serviceRepository: ServiceRepositoryImpl) {}
+  constructor(private serviceRepository: DenoKVServiceRepository) {}
 
   getAll = async (context: Context) => {
     const { page, limit } = context.req.query();
